@@ -1,0 +1,16 @@
+<ul>
+  <% @links.each do |link| %>
+    <li>
+      <h4>Original URL:</h4>
+      <p><%=link.url%></p>
+      <h4>Shortened URL:</h4>
+        <p>
+          <%= link_to "#{request.domain}:#{request.port}/s/#{link.slug}", "/s/#{link.slug}" %>
+        </p>
+      <h4>Clicks</h4>
+      <p><%= link.clicked%></p>
+    </li>
+  <% end %>
+</ul>
+
+<%=link_to "Generate New URL", new_link_path %>
